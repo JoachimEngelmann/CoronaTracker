@@ -29,13 +29,14 @@ class DistrictsCollection: ObservableObject {
     }
     
     func addDistrict(_ name: String){
+        //Prevent double entry in list
         if districts.contains(where: {$0.name == name}){
             return
         }
 
         districts.append(District(name))
         
-        //Add event listener for nestes district
+        //Add event listener for nested districts
         anyCancellable.append(districts[districts.count-1].objectWillChange.sink(receiveValue: { [weak self] (_) in
             //Send event that self will change
             self?.objectWillChange.send()
