@@ -15,8 +15,10 @@
 		AA9601D2255DFDF300C8B293 /* DistrictDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9601CD255DFDF300C8B293 /* DistrictDetails.swift */; };
 		AA9601D3255DFDF300C8B293 /* UI_Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9601CE255DFDF300C8B293 /* UI_Helper.swift */; };
 		AA9601D4255DFDF300C8B293 /* DistrictRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9601CF255DFDF300C8B293 /* DistrictRow.swift */; };
-		AA9601D5255DFDF300C8B293 /* RowNewEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9601D0255DFDF300C8B293 /* RowNewEntry.swift */; };
 		AA9601D6255DFDF300C8B293 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9601D1255DFDF300C8B293 /* ContentView.swift */; };
+		AA9601E325602AF500C8B293 /* addDistrict.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9601E225602AF500C8B293 /* addDistrict.swift */; };
+		AABE56862560770B005255C1 /* addDistrictViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABE56852560770B005255C1 /* addDistrictViewModel.swift */; };
+		AABE568C25607DF4005255C1 /* districts.txt in Resources */ = {isa = PBXBuildFile; fileRef = AABE568B25607DF4005255C1 /* districts.txt */; };
 		AAE807A52548346B00D91DF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE807A42548346B00D91DF3 /* AppDelegate.swift */; };
 		AAE807A72548346B00D91DF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE807A62548346B00D91DF3 /* SceneDelegate.swift */; };
 		AAE807AA2548346B00D91DF3 /* Corona_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AAE807A82548346B00D91DF3 /* Corona_Tracker.xcdatamodeld */; };
@@ -36,9 +38,11 @@
 		AA9601CD255DFDF300C8B293 /* DistrictDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistrictDetails.swift; sourceTree = "<group>"; };
 		AA9601CE255DFDF300C8B293 /* UI_Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI_Helper.swift; sourceTree = "<group>"; };
 		AA9601CF255DFDF300C8B293 /* DistrictRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistrictRow.swift; sourceTree = "<group>"; };
-		AA9601D0255DFDF300C8B293 /* RowNewEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowNewEntry.swift; sourceTree = "<group>"; };
 		AA9601D1255DFDF300C8B293 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA9601E225602AF500C8B293 /* addDistrict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addDistrict.swift; sourceTree = "<group>"; };
 		AAA9DBF825515437007AD915 /* Corona Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Corona Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AABE56852560770B005255C1 /* addDistrictViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addDistrictViewModel.swift; sourceTree = "<group>"; };
+		AABE568B25607DF4005255C1 /* districts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = districts.txt; sourceTree = "<group>"; };
 		AAE807A42548346B00D91DF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAE807A62548346B00D91DF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AAE807A92548346B00D91DF3 /* Corona_Index.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Corona_Index.xcdatamodel; sourceTree = "<group>"; };
@@ -78,11 +82,26 @@
 			children = (
 				AA9601D1255DFDF300C8B293 /* ContentView.swift */,
 				AA9601CF255DFDF300C8B293 /* DistrictRow.swift */,
-				AA9601D0255DFDF300C8B293 /* RowNewEntry.swift */,
 				AA9601CD255DFDF300C8B293 /* DistrictDetails.swift */,
-				AA9601CE255DFDF300C8B293 /* UI_Helper.swift */,
+				AA9601E225602AF500C8B293 /* addDistrict.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		AABE5684256076D6005255C1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AABE56852560770B005255C1 /* addDistrictViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AABE568A25607DC6005255C1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AABE568B25607DF4005255C1 /* districts.txt */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		AAE807982548346B00D91DF3 = {
@@ -100,7 +119,9 @@
 				AAE807A62548346B00D91DF3 /* SceneDelegate.swift */,
 				AA9601CC255DFDF300C8B293 /* Views */,
 				AA5ED30525514FE700A1D621 /* SupportViews */,
+				AABE5684256076D6005255C1 /* ViewModels */,
 				AAE807AD2548346C00D91DF3 /* Assets.xcassets */,
+				AABE568A25607DC6005255C1 /* Resources */,
 				AAE807B22548346C00D91DF3 /* LaunchScreen.storyboard */,
 				AAE807B52548346C00D91DF3 /* Info.plist */,
 				AAE807A82548346B00D91DF3 /* Corona_Tracker.xcdatamodeld */,
@@ -110,6 +131,7 @@
 				AAE8643D25495F59004C5FFC /* LocationProvider.swift */,
 				AAE8643F25496CE8004C5FFC /* Rki_Api.swift */,
 				AA275BD3254EBA4F0094B49F /* CoreDataManager.swift */,
+				AA9601CE255DFDF300C8B293 /* UI_Helper.swift */,
 			);
 			path = "Corona Tracker";
 			sourceTree = "<group>";
@@ -186,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AABE568C25607DF4005255C1 /* districts.txt in Resources */,
 				AAE807B42548346C00D91DF3 /* LaunchScreen.storyboard in Resources */,
 				AAE807B12548346C00D91DF3 /* Preview Assets.xcassets in Resources */,
 				AAE807AE2548346C00D91DF3 /* Assets.xcassets in Resources */,
@@ -205,11 +228,12 @@
 				AA5ED30325514D5300A1D621 /* MapView.swift in Sources */,
 				AA9601D3255DFDF300C8B293 /* UI_Helper.swift in Sources */,
 				AAE807AA2548346B00D91DF3 /* Corona_Tracker.xcdatamodeld in Sources */,
-				AA9601D5255DFDF300C8B293 /* RowNewEntry.swift in Sources */,
+				AABE56862560770B005255C1 /* addDistrictViewModel.swift in Sources */,
 				AAE8643C25495AFC004C5FFC /* District.swift in Sources */,
 				AA9601D2255DFDF300C8B293 /* DistrictDetails.swift in Sources */,
 				AAE807A72548346B00D91DF3 /* SceneDelegate.swift in Sources */,
 				AA008892255B33A400B10F37 /* TrendsView.swift in Sources */,
+				AA9601E325602AF500C8B293 /* addDistrict.swift in Sources */,
 				AA9601D6255DFDF300C8B293 /* ContentView.swift in Sources */,
 				AA275BD7254ECAEB0094B49F /* DistrictsCollection.swift in Sources */,
 				AA275BD4254EBA4F0094B49F /* CoreDataManager.swift in Sources */,

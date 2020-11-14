@@ -14,6 +14,8 @@ struct ContentView: View {
     //List of saved locations
     @ObservedObject var districtsCollection: DistrictsCollection = DistrictsCollection()
 
+    @State private var showingAddDistrict = false
+    
     var body: some View {
         NavigationView {
             List{
@@ -28,11 +30,20 @@ struct ContentView: View {
                     }
                     .onDelete(perform: districtsCollection.remove)
                     .onMove(perform: districtsCollection.move)
-                    
-                    RowNewEntry(districtCollection: districtsCollection)
                 }
             }
-            .navigationBarItems(trailing: EditButton())
+            .navigationBarItems(
+                leading: EditButton(),
+                trailing: Button(action: {
+                    self.showingAddDistrict.toggle()
+                }){
+                    Image(systemName: "plus")
+                    
+                }.sheet(isPresented: $showingAddDistrict) {
+                    addDistrict(districtCollection: districtsCollection)
+                }
+            )
+            
             .navigationBarTitle(Text("Corona Tracker"))
             .listStyle(GroupedListStyle())
         }

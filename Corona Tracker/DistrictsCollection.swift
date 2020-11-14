@@ -12,10 +12,13 @@ import Combine
 
 class DistrictsCollection: ObservableObject {
     @Published var districts: [District] = [District]()
+    var listAvailableDistricts: [String] = [String]()
     
     private var anyCancellable: [AnyCancellable?] = [AnyCancellable]()
     
     init(){
+        loadAvailableDistricts()
+        
         loadLocationsCoreData().forEach(){ location in
             districts.append(District(location.name!, location.incidenceValue, location.longitude, location.latitude, location.lastUpdate!, location.districtID!))
         }
@@ -85,5 +88,12 @@ class DistrictsCollection: ObservableObject {
             debugPrint(error)
             return [Locations()]
         }
+    }
+    
+    private func loadAvailableDistricts(){
+        let file = Bundle.main.path(forResource: "districts.txt", ofType: nil)!
+        let text: String = try! String(contentsOfFile: file, encoding: String.Encoding.utf8)
+
+        listAvailableDistricts =  text.split(separator: "\n").map(String.init)
     }
 }
