@@ -25,8 +25,8 @@ class addDistrictViewModel: ObservableObject {
     }
     
     func getHeight() -> CGFloat{
-        if(autoSuggestionArray.count * 50 > 500){
-            return 500
+        if(autoSuggestionArray.count * 50 > 200){
+            return 200
         }else{
             return CGFloat(autoSuggestionArray.count * 50)
         }
