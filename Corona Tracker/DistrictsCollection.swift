@@ -28,6 +28,16 @@ class DistrictsCollection: ObservableObject {
         districts.remove(atOffsets: offsets)
     }
     
+    func move(source: IndexSet, destination: Int) {
+        districts.move(fromOffsets: source, toOffset: destination)
+        
+        //Delete coreData and write new order
+        deleteAllCoreData()
+        districts.forEach(){district in
+            district.updateCoreData()
+        }
+    }
+    
     func addDistrict(_ name: String){
         //Prevent double entry in list
         if districts.contains(where: {$0.name == name}){

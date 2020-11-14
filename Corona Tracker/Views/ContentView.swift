@@ -25,11 +25,14 @@ struct ContentView: View {
                         NavigationLink(destination: DistrictDetails(district: district)){
                             DistrictRow(district: district)
                         }
-                    }.onDelete(perform: districtsCollection.remove)
+                    }
+                    .onDelete(perform: districtsCollection.remove)
+                    .onMove(perform: districtsCollection.move)
                     
                     RowNewEntry(districtCollection: districtsCollection)
                 }
             }
+            .navigationBarItems(trailing: EditButton())
             .navigationBarTitle(Text("Corona Tracker"))
             .listStyle(GroupedListStyle())
         }

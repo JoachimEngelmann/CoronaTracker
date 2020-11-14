@@ -124,7 +124,7 @@ class District: ObservableObject, Identifiable {
     }
     
     
-    private func updateCoreData(){
+    func updateCoreData(){
         let context = CoreDataManager.shared.backgroundContext()
         
         let reqVar = NSFetchRequest<NSFetchRequestResult>(entityName: "Locations")
@@ -148,11 +148,11 @@ class District: ObservableObject, Identifiable {
                     let entity = NSEntityDescription.entity(forEntityName: "Locations", in: context)
                     let locations = NSManagedObject(entity: entity!, insertInto: context)
                     locations.setValue(self.name, forKey: "name")
-                    locations.setValue(self.incidenceValue, forKey: "incidenceValue")
-                    locations.setValue(self.latitude, forKey: "latitude")
-                    locations.setValue(self.longitude, forKey: "longitude")
-                    locations.setValue(self.lastUpdate, forKey: "lastUpdate")
                     locations.setValue(self.districtID, forKey: "districtID")
+                    locations.setValue(self.incidenceValue, forKey: "incidenceValue")
+                    locations.setValue(self.longitude, forKey: "longitude")
+                    locations.setValue(self.latitude, forKey: "latitude")
+                    locations.setValue(self.lastUpdate, forKey: "lastUpdate")
                     
                     try context.save()
                 } catch {

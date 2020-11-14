@@ -105,11 +105,11 @@
 				AAE807B52548346C00D91DF3 /* Info.plist */,
 				AAE807A82548346B00D91DF3 /* Corona_Tracker.xcdatamodeld */,
 				AAE807AF2548346C00D91DF3 /* Preview Content */,
+				AA275BD6254ECAEB0094B49F /* DistrictsCollection.swift */,
 				AAE8643B25495AFC004C5FFC /* District.swift */,
 				AAE8643D25495F59004C5FFC /* LocationProvider.swift */,
 				AAE8643F25496CE8004C5FFC /* Rki_Api.swift */,
 				AA275BD3254EBA4F0094B49F /* CoreDataManager.swift */,
-				AA275BD6254ECAEB0094B49F /* DistrictsCollection.swift */,
 			);
 			path = "Corona Tracker";
 			sourceTree = "<group>";
