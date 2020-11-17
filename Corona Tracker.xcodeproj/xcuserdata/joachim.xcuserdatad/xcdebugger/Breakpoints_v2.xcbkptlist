@@ -3,4 +3,54 @@
    uuid = "282FBEA6-5700-43C8-AA3E-6539121F5DCE"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "85FD4999-4D44-42BD-94A7-1FC23859E1B7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Corona Tracker/Views/DistrictDetails.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "85FD4999-4D44-42BD-94A7-1FC23859E1B7 - 87f31b893dd72296"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Corona_Tracker.DistrictDetails.body.getter : some"
+                  moduleName = "Corona Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joachim/Documents/Xcode/Corona%20Tracker/Corona%20Tracker/Views/DistrictDetails.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "389">
+               </Location>
+               <Location
+                  uuid = "85FD4999-4D44-42BD-94A7-1FC23859E1B7 - ac1a6be3847021dc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in Corona_Tracker.DistrictDetails.body.getter : some"
+                  moduleName = "Corona Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joachim/Documents/Xcode/Corona%20Tracker/Corona%20Tracker/Views/DistrictDetails.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "259">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

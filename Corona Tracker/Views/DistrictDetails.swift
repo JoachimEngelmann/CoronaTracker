@@ -16,7 +16,7 @@ struct DistrictDetails: View {
         VStack{
             MapView(coordinate: CLLocationCoordinate2D(latitude: district.latitude, longitude: district.longitude))
                 .edgesIgnoringSafeArea(.top)
-                .frame(height: 200)
+                .frame(height: 150)
             
             VStack{
                 VStack{
@@ -29,6 +29,7 @@ struct DistrictDetails: View {
                     .foregroundColor(.gray)
                     .font(.caption)
                 }
+                
                 Divider()
                 
                 HStack{
@@ -71,7 +72,6 @@ struct DistrictDetails: View {
             }
             .padding()
         }
-        .navigationBarTitle(Text(district.name), displayMode: .inline)
         .onAppear(perform: {district.updateTrendData(previousDays: -14)})
     }
 }
