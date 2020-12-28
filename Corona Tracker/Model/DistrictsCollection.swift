@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import Combine
+import SwiftUI
 
 class DistrictsCollection: ObservableObject {
     @Published var districts: [District] = [District]()
@@ -61,7 +62,7 @@ class DistrictsCollection: ObservableObject {
     }
     
     func deleteLocationCoreData(_ name: String){
-        let mainContext = CoreDataManager.shared.mainContext
+        let mainContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let reqVar = NSFetchRequest<NSFetchRequestResult>(entityName: "Locations")
         reqVar.predicate = NSPredicate(format: "name == %@", name)
         let DelAllReqVar = NSBatchDeleteRequest(fetchRequest: reqVar)
@@ -70,7 +71,7 @@ class DistrictsCollection: ObservableObject {
     }
     
     private func deleteAllCoreData() {
-        let mainContext = CoreDataManager.shared.mainContext
+        let mainContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let ReqVar = NSFetchRequest<NSFetchRequestResult>(entityName: "Locations")
         let DelAllReqVar = NSBatchDeleteRequest(fetchRequest: ReqVar)
         do { try mainContext.execute(DelAllReqVar) }
@@ -78,7 +79,7 @@ class DistrictsCollection: ObservableObject {
     }
     
     private func loadLocationsCoreData() -> [Locations] {
-        let mainContext = CoreDataManager.shared.mainContext
+        let mainContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<Locations> = Locations.fetchRequest()
         do {
             let results = try mainContext.fetch(fetchRequest)

@@ -125,7 +125,7 @@ class District: ObservableObject, Identifiable {
     
     
     func updateCoreData(){
-        let context = CoreDataManager.shared.backgroundContext()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let reqVar = NSFetchRequest<NSFetchRequestResult>(entityName: "Locations")
         reqVar.predicate = NSPredicate(format: "name == %@", self.name)
