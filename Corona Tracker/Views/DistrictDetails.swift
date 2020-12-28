@@ -60,15 +60,6 @@ struct DistrictDetails: View {
                 
                 Text("Trends").font(.headline)
                 TrendsView(trends: district.reportedInfectedPerDay)
-                
-//                Section(header: Text("Regeln")){
-//                VStack{
-//                    ForEach(location.getCoronaRules().indices, id: \.self) { idx in
-//                        let rules = location.getCoronaRules()
-//                        Text("\u{2022}" + rules[idx]).padding(.all)
-//                    }
-//                }
-//                }
             }
             .padding()
         }

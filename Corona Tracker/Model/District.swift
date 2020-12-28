@@ -184,40 +184,4 @@ class District: ObservableObject, Identifiable {
             }
         }
     }
-   
-    
-//Not used for now
-#if false
-    func getCoronaRules() -> Array<String>{
-        return coronaRules[getWarnLevel().rawValue]
-    }
-    
-    private static let coronaRules: [Array<String>] = [
-        [
-            "Kontaktbeschränkung im öffentlichen Raum",
-            "Private Veranstaltungen mit max. 100 Teilnehmern in geschlossenen Räumen und max. 200 im Freien",
-            "Maskenpflicht gilt u. A. im OPNV, beim Einkaufen, in der Gastronomie und wenn der Mindestabstand (1.5m) nicht eingehalten werden kann"
-        ],
-        [
-            "Maximal zehn Personen oder 2 Hausstände bei Kontakten, privaten Feiern und im öffentlichen Raum",
-            "Maskenpflicht, wo Menschen dichter und länger zusammen sind, unter anderem auf stark frequentierten öffentlichen Plätzen, in öffentlichen Gebäuden, Arbeitsstätten, Freizeiteinrichtungen, Kulturstätten, auch am Platz in weiterführenden Schulen ab Jahrgangsstufe 5 und Hochschulen",
-            "Sperrstunde ab 23 Uhr, Alkoholverbot auf öffentlichen Plätzen ab 23 Uhr, Alkoholverkaufsverbot an Tankstellen ab 23 Uhr"
-        ],
-        [
-            "Maximal fünf Personen oder 2 Hausstände bei Kontakten, privaten Feiern und im öffentlichen Raum",
-            "Maskenpflicht, wo Menschen dicht und länger zusammen sind, unter anderem auf stark frequentierten öffentlichen Plätzen, in öffentlichen Gebäuden, Arbeitsstätten, Freizeiteinrichtungen, Kulturstätten, auch am Platz in Schulen aller Jahrgangsstufen und Hochschulen",
-            "Sperrstunde ab 22 Uhr, Alkoholverbot auf öffentlichen Plätzen ab 22 Uhr, Alkoholverkaufsverbot an Tankstellen ab 22 Uhr"
-        ],
-        [
-            "Maximal fünf Personen oder 2 Hausstände bei Kontakten, privaten Feiern und im öffentlichen Raum",
-            "Maskenpflicht, wo Menschen dicht und länger zusammen sind, unter anderem auf stark frequentierten öffentlichen Plätzen, in öffentlichen Gebäuden, Arbeitsstätten, Freizeiteinrichtungen, Kulturstätten, auch am Platz in Schulen aller Jahrgangsstufen und Hochschulen",
-            "Sperrstunde ab 21 Uhr, Alkoholverbot auf öffentlichen Plätzen ab 21 Uhr, Alkoholverkaufsverbot an Tankstellen ab 21 Uhr",
-            "Maximal 50 Personen für Veranstaltungen aller Art; mit Ausnahme von Kirchenveranstaltungen, Demonstrationen und Hochschulen"
-        ],
-        [
-            "Unknown"
-        ]
-    ]
-#endif
-    
 }
