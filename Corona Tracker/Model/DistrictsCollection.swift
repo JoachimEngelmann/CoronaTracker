@@ -21,7 +21,7 @@ class DistrictsCollection: ObservableObject {
         loadAvailableDistricts()
         
         loadLocationsCoreData().forEach(){ location in
-            districts.append(District(location.name!, location.incidenceValue, location.longitude, location.latitude, location.lastUpdate!, location.districtID!))
+            districts.append(District(location.name!, location.incidenceValue, location.longitude, location.latitude, location.lastUpdate!, location.districtID!, location.infectedPerDay as! Dictionary<Int, Int>))
         }
     }
     

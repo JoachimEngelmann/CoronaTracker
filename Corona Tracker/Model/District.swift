@@ -57,28 +57,33 @@ class District: ObservableObject, Identifiable {
             
             //Get RKI values
             self.aquireRkiValues_name(){
-                self.updateCoreData()
+                self.updateInfectedPerDay(previousDays: historyInfectedPerDay){
+                    self.updateCoreData()
+                }
             }
         }
     }
     
     ///Create object from persistand data
-    init(_ name: String, _ incidenceValue: Double, _ longitude: Double, _ latitude: Double, _ lastUpdate: Date, _ districtID: String){
+    init(_ name: String, _ incidenceValue: Double, _ longitude: Double, _ latitude: Double, _ lastUpdate: Date, _ districtID: String, _ infectedPerDay: Dictionary<Int, Int>){
         self.name = name
         self.incidenceValue = incidenceValue
         self.longitude = longitude
         self.latitude = latitude
         self.lastUpdate = lastUpdate
         self.districtID = districtID
+        self.reportedInfectedPerDay = infectedPerDay
         valid = true
         
         //Only update RKI values if they are older than 1 hour
         if(lastUpdate.timeIntervalSinceNow.isLessThanOrEqualTo(-3600)){
             aquireRkiValues_name(){
-                DispatchQueue.main.async {
-                    self.lastUpdate = Date()
+                self.updateInfectedPerDay(previousDays: historyInfectedPerDay){
+                    DispatchQueue.main.async {
+                        self.lastUpdate = Date()
+                        self.updateCoreData()
+                    }
                 }
-                self.updateCoreData()
             }
         }
     }
@@ -99,7 +104,7 @@ class District: ObservableObject, Identifiable {
         }
     }
     
-    func updateTrendData(previousDays: Double){
+    func updateInfectedPerDay(previousDays: Double, completion: @escaping () -> Void = {}){
         Rki_Api.getTrendData(districtID: districtID, previousDays: previousDays){ data in
             
             let tmpTrends = data.reduce([Int: Int]()) { (dict, entry) -> [Int: Int] in
@@ -110,16 +115,19 @@ class District: ObservableObject, Identifiable {
             
             DispatchQueue.main.async {
                 self.reportedInfectedPerDay = tmpTrends
+                completion()
             }
         }
     }
     
-    func updateIncidenceData(){
+    func updateData(){
         aquireRkiValues_name(){
-            DispatchQueue.main.async {
-                self.lastUpdate = Date()
+            self.updateInfectedPerDay(previousDays: historyInfectedPerDay){
+                DispatchQueue.main.async {
+                    self.lastUpdate = Date()
+                    self.updateCoreData()
+                }
             }
-            self.updateCoreData()
         }
     }
     
@@ -135,6 +143,7 @@ class District: ObservableObject, Identifiable {
             //Set new coreData values
             results?[0].setValue(self.incidenceValue, forKey: "incidenceValue")
             results?[0].setValue(self.lastUpdate, forKey: "lastUpdate")
+            results?[0].setValue(self.reportedInfectedPerDay, forKey: "infectedPerDay")
             
             do{
                 try context.save()
@@ -153,6 +162,7 @@ class District: ObservableObject, Identifiable {
                     locations.setValue(self.longitude, forKey: "longitude")
                     locations.setValue(self.latitude, forKey: "latitude")
                     locations.setValue(self.lastUpdate, forKey: "lastUpdate")
+                    locations.setValue(self.reportedInfectedPerDay, forKey: "infectedPerDay")
                     
                     try context.save()
                 } catch {

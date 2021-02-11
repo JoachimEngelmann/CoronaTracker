@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+let historyInfectedPerDay: Double = -14
+
 struct ContentView: View {
     //Object for current location
     @ObservedObject var currentLocation: District = District()

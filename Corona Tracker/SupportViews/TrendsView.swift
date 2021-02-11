@@ -11,12 +11,13 @@ import SwiftUICharts
 
 struct TrendsView: View {
     let trends: Dictionary<Int, Int>
-    
-    @State var chartData: [Double] = [0, 5, 6, 2, 13, 4, 3, 6]
-    
+        
     var body: some View {
         VStack{
-            LineView(data: Array(trends.sorted(by: <).map({(key, value) in Double(value)}))).offset(x: 0, y: -20)
+            LineView(
+                data: Array(trends.sorted(by: <).map({(key, value) in Double(value)})),
+                xAxisData: ["-13 Tage","-12 Tage","-11 Tage","-10 Tage","-8 Tage","-7 Tage","-6 Tage","-5 Tage","-4 Tage","-3 Tage","-2 Tage","-1 Tage","Heute"]
+            ).offset(x: 0, y: -20)
         }
     }
 }

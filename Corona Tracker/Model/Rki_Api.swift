@@ -9,19 +9,19 @@
 import Foundation
 
 class Rki_Api{
-    static func getIncidenceData(latitude: Double, longtitude: Double, completion: @escaping (_ data: AttributesDistrict) -> Void){
+    static func getIncidenceData(latitude: Double, longtitude: Double, completion: @escaping (_ data: AttributesDistrictInformation) -> Void){
         let apiUrl = URL(string:  "https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?where=1%3D1&outFields=GEN,cases7_per_100k,RS&geometry=" + (String(format: "%.3f", longtitude)) + "%2C" + (String(format: "%.3f", latitude)) + "&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelWithin&returnGeometry=false&outSR=4326&f=json")!
         
         // Send HTTP Request
         URLSession.shared.dataTask(with: apiUrl) { (data, response, error) in
             if let dataResponse = data{
-                let dataResponse: RKIData = try! JSONDecoder().decode(RKIData<AttributesDistrict>.self, from: dataResponse)
+                let dataResponse: RKIData = try! JSONDecoder().decode(RKIData<AttributesDistrictInformation>.self, from: dataResponse)
                 completion(dataResponse.features[0].attributes)
             }
         }.resume()
     }
     
-    static func getIncidenceData(districtName: String, completion: @escaping (_ data: AttributesDistrict) -> Void){
+    static func getIncidenceData(districtName: String, completion: @escaping (_ data: AttributesDistrictInformation) -> Void){
         let district_tmp = districtName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         
         guard let apiUrl = URL(string:  "https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?where=GEN%20%3D%20%27" + district_tmp! + "%27&outFields=GEN,cases7_per_100k,RS&returnGeometry=false&outSR=4326&f=json") else {return}
@@ -29,7 +29,7 @@ class Rki_Api{
         // Send HTTP Request
         URLSession.shared.dataTask(with: apiUrl) { (data, response, error) in
             if let dataResponse = data{
-                let dataResponse: RKIData = try! JSONDecoder().decode(RKIData<AttributesDistrict>.self, from: dataResponse)
+                let dataResponse: RKIData = try! JSONDecoder().decode(RKIData<AttributesDistrictInformation>.self, from: dataResponse)
                 if(dataResponse.features.count != 0){
                     completion(dataResponse.features[0].attributes)
                 }
@@ -37,7 +37,7 @@ class Rki_Api{
         }.resume()
     }
     
-    static func getTrendData(districtID: String, previousDays: Double, completion: @escaping (_ data: [AttributesTrend]) -> Void){
+    static func getTrendData(districtID: String, previousDays: Double, completion: @escaping (_ data: [AttributesInfectedPerDay]) -> Void){
         let iso8601DateFormatter = ISO8601DateFormatter()
         iso8601DateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         
@@ -49,9 +49,9 @@ class Rki_Api{
         // Send HTTP Request
         URLSession.shared.dataTask(with: apiURL) { (data, response, error) in
             if let dataResponse = data{
-                let dataResponse: RKIData = try! JSONDecoder().decode(RKIData<AttributesTrend>.self, from: dataResponse)
+                let dataResponse: RKIData = try! JSONDecoder().decode(RKIData<AttributesInfectedPerDay>.self, from: dataResponse)
                 if(dataResponse.features.count != 0){
-                    var returnVal: [AttributesTrend] = [AttributesTrend]()
+                    var returnVal: [AttributesInfectedPerDay] = [AttributesInfectedPerDay]()
                     
                     dataResponse.features.forEach(){entry in
                         returnVal.append(entry.attributes)
@@ -72,7 +72,7 @@ private struct RKIData<Type: Codable>: Codable {
     let features: [Feature<Type>]
 }
 
-struct AttributesDistrict: Codable {
+struct AttributesDistrictInformation: Codable {
     let name: String
     let cases7Per100K: Double
     let districtID: String
@@ -83,7 +83,7 @@ struct AttributesDistrict: Codable {
         case districtID = "RS"
     }
 }
-struct AttributesTrend: Codable {
+struct AttributesInfectedPerDay: Codable {
     let reportingDate: Int
     let cases: Int
 

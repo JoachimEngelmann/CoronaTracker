@@ -49,8 +49,7 @@ struct DistrictDetails: View {
                     Spacer()
                     Button(action: {
                         self.hideKeyboard()
-                        district.updateIncidenceData()
-                        district.updateTrendData(previousDays: -14)
+                        district.updateData()
                     }) {
                         Image(systemName: "arrow.clockwise.icloud")
                     }
@@ -58,12 +57,11 @@ struct DistrictDetails: View {
                 
                 Divider()
                 
-                Text("Trends").font(.headline)
+                Text("Infektionen/Tag").font(.headline)
                 TrendsView(trends: district.reportedInfectedPerDay)
             }
             .padding()
         }
-        .onAppear(perform: {district.updateTrendData(previousDays: -14)})
     }
 }
 

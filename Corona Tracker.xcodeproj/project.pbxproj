@@ -39,6 +39,7 @@
 		AA9601D1255DFDF300C8B293 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AA9601E225602AF500C8B293 /* addDistrict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addDistrict.swift; sourceTree = "<group>"; };
 		AAA9DBF825515437007AD915 /* Corona Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Corona Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAAF9EE325D553A200240D7F /* ChartView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ChartView; path = ../ChartView; sourceTree = "<group>"; };
 		AABE56852560770B005255C1 /* addDistrictViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addDistrictViewModel.swift; sourceTree = "<group>"; };
 		AABE568B25607DF4005255C1 /* districts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = districts.txt; sourceTree = "<group>"; };
 		AAE807A42548346B00D91DF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		AAE807982548346B00D91DF3 = {
 			isa = PBXGroup;
 			children = (
+				AAAF9EE325D553A200240D7F /* ChartView */,
 				AAE807A32548346B00D91DF3 /* Corona Tracker */,
 				AAA9DBF825515437007AD915 /* Corona Tracker.app */,
 			);
